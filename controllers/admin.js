@@ -30,3 +30,8 @@ exports.postLessonForm = async (req, res) => {
     // res.render('admin/lesson-form.pug', {})
 }
 
+
+exports.getTaskForm = (req, res) => {
+	res.render('admin/task-form.pug', {})
+}
+
