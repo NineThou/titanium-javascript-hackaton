@@ -9,15 +9,12 @@ head
 	title lesson-form
 body
 	div.container-fluid
-		div(class = "cnavbar navbar-expand-lg navbar-light bg-light")
-			a(class="navbar-brand" href="#") AllCash
-			button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
-				span(class="navbar-toggler-icon")
+		nav(class = "cnavbar navbar-expand-lg navbar-light bg-light")
 			div(class="collapse navbar-collapse" id="navbarNav")
 				nav(class="navbar-nav") 
 					li(class="nav-item active")
-						a(class="nav-link" href="#") Home
+						a(class="nav-link" href="/admin") Home
 					li(class="nav-item active")
-						a(class="nav-link" href="#") New Lesson
+						a(class="nav-link" href="/admin/lesson-form") New Lesson
 					li(class="nav-item active")
-						a(class="nav-link" href="#") New Task
+						a(class="nav-link" href="/admin/add-task-form") New Task
