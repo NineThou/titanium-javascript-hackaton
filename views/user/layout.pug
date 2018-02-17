@@ -7,6 +7,15 @@ head
     link(rel='stylesheet', href='/css/main.css')
     title Admin
 body
-    .container
-        block content
-    
+	include partials/header
+
+	.container
+		include partials/flash
+		block content
+
+	include partials/footer
+
+	script(src='/js/lib/jquery-3.1.1.min.js')
+	script(src='/js/lib/bootstrap.min.js')
+	script(src='/js/main.js')
+

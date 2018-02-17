@@ -38,7 +38,7 @@ const contactController = require('./controllers/contact');
 const adminController = require('./controllers/admin');
 const lessonController = require('./controllers/lesson');
 const taskController = require('./controllers/tasks')
-
+const proxyController = require('./controllers/proxy');
 
 /**
  * API keys and Passport configuration.
@@ -132,7 +132,7 @@ app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
 app.get('/signup', userController.getSignup);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
-// app.get('/lessons', userController.getAllLessons);
+//app.get('/lessons', userController.getAllLessons);
 app.post('/signup', userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
@@ -148,9 +148,9 @@ app.get('/task/:id', taskController.getTask);
 app.get('/admin', adminController.home);
 app.get('/admin/add-task-form', adminController.getTaskForm);
 app.post('/admin/add-task-form', adminController.postTaskForm);
-app.get("/error-page", (req, res) =>{
-  res.render("error-page");
-});
+
+app.post('/solution', proxyController.solutionProxy);
+
 app.get('/test', (req, res) => {
     res.json({
       test: 'name'

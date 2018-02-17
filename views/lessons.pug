@@ -1,4 +1,11 @@
 extends layout
 
 block content
-    pre= JSON.stringify(lessons)
+	link(href="/css/lesson-task.css", rel="stylesheet")
+	h1 Lessons List
+	ul.list-group
+		each lesson in lessons
+			li.list-group-item
+				a(href="/lesson/" + lesson._id)= lesson.name 
+				p= lesson.description
+				
