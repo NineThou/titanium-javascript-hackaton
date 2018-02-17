@@ -36,6 +36,8 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const adminController = require('./controllers/admin');
+const lessonController = require('./controllers/lesson');
+
 
 /**
  * API keys and Passport configuration.
@@ -138,6 +140,7 @@ app.post('/account/delete', passportConfig.isAuthenticated, userController.postD
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 app.get('/admin/lesson-form', adminController.getLessonForm);
 app.post('/admin/lesson-form', adminController.postLessonForm);
+app.get('/lessons', lessonController.getLessonsForm);
 app.get('/admin', adminController.home);
 app.get('/test', (req, res) => {
     res.json({
