@@ -137,6 +137,7 @@ app.post('/account/delete', passportConfig.isAuthenticated, userController.postD
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 app.get('/admin/lesson-form', adminController.getLessonForm);
 app.get('/admin', adminController.home);
+app.get('/admin/add-task-form', adminController.getTaskForm);
 app.get('/test', (req, res) => {
     res.json({
       test: 'name'
