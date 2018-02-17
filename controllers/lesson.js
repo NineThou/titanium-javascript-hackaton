@@ -5,8 +5,8 @@ exports.getAllLessons = async (req, res) => {
     try {
         const lessons = await Lessons.find({}, function(err, allLessons){
             return allLessons;
-        })   
-        res.render('/lessons.pug', {lessons: lessons}) 
+        })
+        res.render('lessons', {lessons: lessons}) 
     } catch(error){
         res.status(404).send("Ощибка при получение списка задач")
     }
@@ -23,5 +23,5 @@ exports.getByIdLesson = async (req, res) => {
     } catch(error){
         res.status(404).send("Ощибка при получение задачи")
     }
-    
+
 }
