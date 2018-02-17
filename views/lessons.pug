@@ -1,11 +1,12 @@
 extends layout
 
 block content
-	link(href="/css/lesson-task.css", rel="stylesheet")
-	h1 Lessons List
+	link(href="/css/lessons.css", rel="stylesheet")
+	h1.text-center Lessons List
 	ul.list-group
-		each lesson in lessons
-			li.list-group-item
-				a(href="/lesson/" + lesson._id)= lesson.name 
-				p= lesson.description
-				
+			each lesson in lessons 
+				a(href="/lesson/" + lesson._id).listing
+					li.list-group-item
+						p= lesson.name 
+						p.description-text= lesson.description
+						
