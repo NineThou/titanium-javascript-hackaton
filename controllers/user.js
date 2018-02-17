@@ -380,3 +380,7 @@ exports.postForgot = (req, res, next) => {
 exports.getAllLessons = (req, res) => {
     res.render('user/lessons.pug', {})
 }
+//render tasks page
+exports.taskSubmit = (req, res) => {
+  res.render('user/renderTasks.pug', {})
+}
