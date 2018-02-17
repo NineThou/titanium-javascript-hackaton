@@ -18,7 +18,10 @@ module.exports.solutionProxy = async (req, res) => {
             solution: solution,
         })
         .then( ( resp ) => {
-            return resp.data
+            return {
+                sucess: resp.data.error == 0,
+                errors: resp.data.tests,
+            }
         } )
 
         res.send(resp)
