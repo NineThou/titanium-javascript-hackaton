@@ -36,6 +36,9 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const adminController = require('./controllers/admin');
+const lessonController = require('./controllers/lesson');
+const taskController = require('./controllers/tasks')
+const proxyController = require('./controllers/proxy');
 
 /**
  * API keys and Passport configuration.
@@ -139,9 +142,13 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 app.get('/admin/lesson-form', adminController.getLessonForm);
 app.post('/admin/lesson-form', adminController.postLessonForm);
+app.get('/lessons', lessonController.getAllLessons);
+app.get('/lesson/:id', lessonController.getByIdLesson);
+app.get('/task/:id', taskController.getTask);
 app.get('/admin', adminController.home);
 app.get('/admin/add-task-form', adminController.getTaskForm);
 app.post('/admin/add-task-form', adminController.postTaskForm);
+app.post('/solution', proxyController.solutionProxy);
 app.get('/test', (req, res) => {
     res.json({
       test: 'name'
