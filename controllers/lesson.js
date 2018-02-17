@@ -1,4 +1,5 @@
 const Lessons = require('../models/Lessons')
+const Task = require('../models/Tasks')
 
 //get all lessons
 exports.getAllLessons = async (req, res) => {
@@ -19,7 +20,14 @@ exports.getByIdLesson = async (req, res) => {
         const lesson = await Lessons.findById(req.params.id).exec(( err, foundLesson) => {
             return foundLesson
         })
-        res.render('lesson.pug', {lesson: lesson})
+
+        const tasks = await Task.find({ lesson: lesson._id }).exec( ( err, tasks ) => { return tasks } )
+
+        res.render('lesson.pug', {
+            lesson: lesson,
+            tasks: tasks,
+        })
+
     } catch(error){
         res.status(404).send("Ощибка при получение задачи")
     }
