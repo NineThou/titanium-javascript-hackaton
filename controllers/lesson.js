@@ -6,7 +6,7 @@ exports.getAllLessons = async (req, res) => {
         const lessons = await Lessons.find({}, function(err, allLessons){
             return allLessons;
         })
-        res.render('lessons', {lessons: lessons}) 
+        res.render('lessons', {lessons: lessons})
     } catch(error){
         res.status(404).send("Ощибка при получение списка задач")
     }
@@ -19,7 +19,7 @@ exports.getByIdLesson = async (req, res) => {
         const lesson = await Lessons.findById(req.params.id).exec(( err, foundLesson) => {
             return foundLesson
         })
-        res.render('/lesson.pug', {lesson: lesson})
+        res.render('lesson.pug', {lesson: lesson})
     } catch(error){
         res.status(404).send("Ощибка при получение задачи")
     }
