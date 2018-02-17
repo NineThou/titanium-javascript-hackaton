@@ -1,35 +1,46 @@
+
+
 extends layout
 
 block scripts
 	script(src="/js/task-form.js" type="text/javascript")
 block content
-	pre= JSON.stringify(lessons)
-	form.form-group#task-form
-		input(
-			name='name'
-			type='text'
-			placeholder='Enter Task Name'
-		)
-		input(
-			type='text'
-			placeholder='Lesson to which task is related'
-		)
-		textarea(
-			name='description'
-			placeholder='Task Descriptions'
-		)
-		textarea(
-			name='tests'
-			placeholder='Task Tests'	
-		)
-		button(
-			type='submit'
-			name='submit-task'
-	
-		) Submit
-		
-		select(name='lesson')
-			each val, index in lessons
-				option(value=val._id)= val.name
+	link(href="/css/lesson-task.css", rel="stylesheet")
+	div.container.text-center
+		form.form-group#task-form.text-center
+			input(
+				class='name form-control'
+				name='name'
+				type='text'
+				placeholder='Enter Task Name'
+			)
+			input(
+				class='lesson form-control'
+				type='text'
+				placeholder='Lesson to which task is related'
+			)
+			textarea(
+				class='task-description'
+				name='description'
+				placeholder='Task Descriptions'
+			)
+			textarea(
+				class='test'
+				name='tests'
+				placeholder='Task Tests'	
+			)
+			div.container.text-center
+				button(
+						class='submit-button btn btn-primary'
+						type='submit'
+						name='submit-task'
+				
+				) Submit
+					
+				select(name='lesson' class="select-name")
+					each val, index in lessons
+						option(value=val._id)= val.name
+		div.response.hidden Lesson added successfully
+		div.reject.hidden Reject
 
 
