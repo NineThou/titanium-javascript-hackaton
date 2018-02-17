@@ -19,7 +19,7 @@ module.exports.solutionProxy = async (req, res) => {
         })
         .then( ( resp ) => {
             return {
-                sucess: resp.data.error == 0,
+                success: resp.data.error == 0,
                 errors: resp.data.tests,
             }
         } )
