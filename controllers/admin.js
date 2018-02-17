@@ -10,16 +10,16 @@ exports.getLessonForm = (req, res) => {
 }
 exports.postLessonForm = async (req, res) => {
     // res.send('hey punk')
-    
+
     try {
         const lesson = new Lesson({
             name: req.body.name,
             description: req.body.description
         })
-        
+
         const result = await lesson.save();
         res.send({
-            succes : (result) ? true: false 
+            succes : (result) ? true: false
         })
     } catch (error) {
         console.log(error)
@@ -34,4 +34,3 @@ exports.postLessonForm = async (req, res) => {
 exports.getTaskForm = (req, res) => {
 	res.render('admin/task-form.pug', {})
 }
-
