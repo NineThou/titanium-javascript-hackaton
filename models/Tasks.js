@@ -1,17 +1,15 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var TasksSchema = new Schema (
+const TasksSchema = new Schema (
     {
         name: {type: String, required: true},
-        lesson: {type: Schema.ObjectId, ref: 'Lesson'},
         description: {type: String},
         tests: {type: String},
+        lesson: {type: Schema.ObjectId, ref: 'Lessons', required: true}
     }
 )
-
-
 
 
 module.exports = mongoose.model('Task', TasksSchema);
