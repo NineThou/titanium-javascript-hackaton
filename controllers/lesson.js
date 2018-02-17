@@ -1,5 +1,6 @@
 const Lessons = require('../models/Lessons')
 
+
 //get all lessons
 exports.getAllLessons = async (req, res) => {
     try {
@@ -10,6 +11,7 @@ exports.getAllLessons = async (req, res) => {
     } catch(error){
         res.status(404).send("Ощибка при получение списка задач")
     }
+
 }
 
 
