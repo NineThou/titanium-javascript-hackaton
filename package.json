@@ -9,7 +9,7 @@
   "author": "Sahat Yalkabov",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js",
+    "start": "MONGODB_URI='mongodb://admin:admin@ds237808.mlab.com:37808/titanium' node app.js",
     "watch": "webpack -w",
     "test": "mocha --reporter spec",
     "postinstall": "npm rebuild node-sass",
