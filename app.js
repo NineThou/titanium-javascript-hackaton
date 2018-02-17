@@ -148,6 +148,9 @@ app.get('/task/:id', taskController.getTask);
 app.get('/admin', adminController.home);
 app.get('/admin/add-task-form', adminController.getTaskForm);
 app.post('/admin/add-task-form', adminController.postTaskForm);
+app.get("/error-page", (req, res) =>{
+  res.render("error-page");
+});
 app.get('/test', (req, res) => {
     res.json({
       test: 'name'
@@ -238,8 +241,11 @@ app.get('/auth/pinterest/callback', passport.authorize('pinterest', { failureRed
 /**
  * Error Handler.
  */
-app.use(errorHandler());
-
+// app.use(errorHandler());
+app.use((req, res, next) => {
+  res.status(404)
+  res.render('error-page')
+})
 /**
  * Start Express server.
  */
