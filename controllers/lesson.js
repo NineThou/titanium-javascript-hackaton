@@ -3,21 +3,22 @@ const Task = require('../models/Tasks')
 
 
 //get all lessons
-exports.getAllLessons = async (req, res) => {
+exports.getAllLessons = async (req, res, next) => {
     try {
         const lessons = await Lessons.find({}, function(err, allLessons){
             return allLessons;
         })
         res.render('lessons', {lessons: lessons})
     } catch(error){
-        res.status(404).send("Ощибка при получение списка задач")
+        next()
+        // res.status(404).send("Ощибка при получение списка задач")
     }
 
 }
 
 
 //get a specific leson by id
-exports.getByIdLesson = async (req, res) => {
+exports.getByIdLesson = async (req, res, next) => {
     try {
         const lesson = await Lessons.findById(req.params.id).exec(( err, foundLesson) => {
             return foundLesson
@@ -31,7 +32,8 @@ exports.getByIdLesson = async (req, res) => {
         })
 
     } catch(error){
-        res.status(404).send("Ощибка при получение задачи")
+        next()
+        // res.status(404)
     }
 
 }

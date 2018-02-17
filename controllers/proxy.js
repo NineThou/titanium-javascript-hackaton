@@ -27,7 +27,6 @@ module.exports.solutionProxy = async (req, res) => {
         res.send(resp)
 
     } catch ( err ) {
-
         res.send({
             success: false,
             errors: [],
