@@ -1,12 +1,15 @@
 extends layout
 
 block content
-	h1= task.name
-	p= task.description
-	form(id='task-solution')
-		textarea.solution(name='solution')
-		button(type='submit') Submit solution
-		input(type='hidden' name='task' value=task._id)
-	p.errors#error
+	link(href="/css/task.css", rel="stylesheet")
+	div.container.task
+		h1.title= task.name
+		p.descr= task.description
+		form(id='task-solution')
+			textarea.solution(name='solution' class="textarea")
+			div.btnm
+				button(type='submit' class="btn btn-primary kek") Submit solution
+				input(type='hidden' name='task' value=task._id)
+		p.errors#error
 block scripts
 	script(src="/js/taskSubmit.js" type="text/javascript")
