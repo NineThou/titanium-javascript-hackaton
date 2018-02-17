@@ -1,2 +1,9 @@
-pre= JSON.stringify(lesson)
-pre= JSON.stringify(tasks)
+extends layout
+block content
+    h1= lesson.name
+    p= lesson.description
+    h3 Tasks list:
+    ul.list-group
+        each task in tasks
+            li.list-group-item
+                a(href='/task/' + task._id )= task.name
