@@ -1,5 +1,7 @@
 extends layout
 
+block scripts
+	script(src="/js/task-form.js" type="text/javascript")
 block content
 	pre= JSON.stringify(lessons)
 	form.form-group#task-form
