@@ -7,7 +7,7 @@ var TasksSchema = new Schema (
         name: {type: String, required: true},
         lesson: {type: Schema.ObjectId, ref: 'Lesson'},
         description: {type: String},
-        test: {type: String},
+        tests: {type: String},
     }
 )
 
