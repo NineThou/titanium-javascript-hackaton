@@ -138,6 +138,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 app.get('/admin/lesson-form', adminController.getLessonForm);
 app.get('/admin', adminController.home);
 app.get('/admin/add-task-form', adminController.getTaskForm);
+app.get('/lessons', userController.getAllLessons);
 app.get('/test', (req, res) => {
     res.json({
       test: 'name'

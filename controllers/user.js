@@ -374,3 +374,10 @@ exports.postForgot = (req, res, next) => {
     .then(() => res.redirect('/forgot'))
     .catch(next);
 };
+
+
+//get all lessons
+exports.getAllLessons = (req, res) => {
+    // res.send('hey punk')
+    res.render('user/lessons.pug', {})
+}
