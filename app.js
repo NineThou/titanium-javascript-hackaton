@@ -37,6 +37,7 @@ const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const adminController = require('./controllers/admin');
 const lessonController = require('./controllers/lesson');
+const proxyController = require('./controllers/proxy');
 
 
 /**
@@ -146,6 +147,7 @@ app.get('/lesson/:id', lessonController.getByIdLesson);
 app.get('/admin', adminController.home);
 app.get('/admin/add-task-form', adminController.getTaskForm);
 app.post('/admin/add-task-form', adminController.postTaskForm);
+app.post('/solution', proxyController.solutionProxy);
 app.get('/test', (req, res) => {
     res.json({
       test: 'name'
