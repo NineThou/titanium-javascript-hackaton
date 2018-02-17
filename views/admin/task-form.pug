@@ -1,8 +1,10 @@
 extends layout
 
 block content
-	form.form-group 
+	pre= JSON.stringify(lessons)
+	form.form-group#task-form
 		input(
+			name='name'
 			type='text'
 			placeholder='Enter Task Name'
 		)
@@ -10,11 +12,22 @@ block content
 			type='text'
 			placeholder='Lesson to which task is related'
 		)
-		input(
-			type='textarea'
+		textarea(
+			name='description'
 			placeholder='Task Descriptions'
 		)
-		input(
-			type='textarea'
-			placeholder='Task Texts'	
+		textarea(
+			name='tests'
+			placeholder='Task Tests'	
 		)
+		button(
+			type='submit'
+			name='submit-task'
+	
+		) Submit
+		
+		select(name='lesson')
+			each val, index in lessons
+				option(value=val._id)= val.name
+
+
