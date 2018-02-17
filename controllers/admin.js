@@ -20,7 +20,7 @@ exports.postLessonForm = async (req, res) => {
 
         const result = await lesson.save();
         res.send({
-            succes : (result) ? true: false
+            success : (result) ? true: false 
         })
     } catch (error) {
         console.log(error)
