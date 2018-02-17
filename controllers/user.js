@@ -378,6 +378,5 @@ exports.postForgot = (req, res, next) => {
 
 //get all lessons
 exports.getAllLessons = (req, res) => {
-    // res.send('hey punk')
     res.render('user/lessons.pug', {})
 }
