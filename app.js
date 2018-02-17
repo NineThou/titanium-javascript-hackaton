@@ -140,7 +140,8 @@ app.post('/account/delete', passportConfig.isAuthenticated, userController.postD
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 app.get('/admin/lesson-form', adminController.getLessonForm);
 app.post('/admin/lesson-form', adminController.postLessonForm);
-app.get('/lessons', lessonController.getLessonsForm);
+app.get('/lessons', lessonController.getAllLessons);
+app.get('/lesson/:id', lessonController.getByIdLesson);
 app.get('/admin', adminController.home);
 app.get('/test', (req, res) => {
     res.json({
