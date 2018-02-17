@@ -49,6 +49,7 @@ const app = express();
  * Connect to MongoDB.
  */
 mongoose.Promise = global.Promise;
+process.env.MONGODB_URI = 'mongodb://admin:admin@ds237808.mlab.com:37808/titanium'
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
 mongoose.connection.on('error', (err) => {
   console.error(err);
