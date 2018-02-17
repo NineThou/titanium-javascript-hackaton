@@ -1,4 +1,5 @@
 var Lesson = require('../models/Lessons');
+var Tasks = require('../models/Tasks');
 
 exports.home = (req, res) => {
     // res.send('hey punk')
@@ -31,6 +32,11 @@ exports.postLessonForm = async (req, res) => {
 }
 
 
-exports.getTaskForm = (req, res) => {
-	res.render('admin/task-form.pug', {})
+exports.getTaskForm = async (req, res) => {
+    const lessons = await Lesson.find({}).exec(( err, lessons ) => {
+        return lessons
+    })
+	res.render('admin/task-form.pug', {
+        lessons: lessons.map( lesson  => { return { _id: lesson._id, name: lesson.name  } } )
+    })
 }
